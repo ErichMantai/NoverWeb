@@ -1,0 +1,45 @@
+#form-container {
+    width: 100vw;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center
+}
+
+@media screen and (min-width: 800px) {
+    #form-box {
+        width: 300px;
+        padding: 10px;
+        box-sizing: border-box;
+    }
+}
+
+@media screen and (max-width: 799px) {
+    #form-box {
+        width: 800px;
+        padding: 10px;
+        box-sizing: border-box;
+    }
+}
+
+
+
+#form-box input {
+    font-size: large;
+}
+
+#fundo {
+  background-image: url("img/escarabajo.png");
+  background-position: center; 
+  background-attachment: fixed;
+  background-repeat: no-repeat   
+}
+
+body {
+  background: url('img/escarabajo.png') center center no-repeat fixed; 
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+}
