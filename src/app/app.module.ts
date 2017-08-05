@@ -30,6 +30,7 @@ export const FirebaseConfig = {
     AngularFireModule.initializeApp(FirebaseConfig),
     routes
   ],
+  //AQUI
   providers: [ProvidersService, AngularFireAuth],
   bootstrap: [AppComponent]
 })
