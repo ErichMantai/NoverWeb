@@ -9,5 +9,11 @@ import { ProvidersService } from './services/providers.service';
 })
 
 export class AppComponent {
+  constructor(private router: Router,public afAuth: ProvidersService){}
+
+  logout() {
+    this.afAuth.logoutFacebook();
+    this.router.navigateByUrl('login')
   }
+}
 

@@ -4,11 +4,11 @@ import { Observable } from 'rxjs/Observable';
 import { ProvidersService } from '../services/providers.service';
 
 @Component({
-  selector: 'app-home',
-  templateUrl: './home.component.html',
-  styleUrls: ['./home.component.css'],
+  selector: 'app-pedido',
+  templateUrl: './pedido.component.html',
+  styleUrls: ['./pedido.component.css'],
 })
-export class HomeComponent implements OnInit {
+export class PedidoComponent implements OnInit {
   name: any;
   state: String = '';
   // user: Observable<firebase.User>;
@@ -21,11 +21,6 @@ export class HomeComponent implements OnInit {
     //   }
     // });
 
-  }
-
-  logout() {
-    this.afAuth.logoutFacebook();
-    this.router.navigateByUrl('login')
   }
 
   ngOnInit() {

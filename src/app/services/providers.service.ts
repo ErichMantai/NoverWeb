@@ -1,11 +1,16 @@
 import { Injectable } from '@angular/core';
-import { AngularFireModule } from 'angularfire2';
 import { AngularFireAuth } from 'angularfire2/auth';
+import * as firebase from 'firebase/app';
+import { Observable } from 'rxjs/Observable';
 
 @Injectable()
 export class ProvidersService {
 
-  constructor(public af: AngularFireAuth) { }
+  user: Observable<firebase.User>;
+
+  constructor(public af: AngularFireAuth) { 
+    this.user = af.authState;
+  }
 
   loginWithFacebook() {
    return this.af.auth.signInWithPopup(new firebase.auth.FacebookAuthProvider());

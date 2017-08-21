@@ -1,4 +1,4 @@
-#form-container {
+/* #form-container {
     width: 100vw;
     height: 100vh;
     display: flex;
@@ -30,16 +30,16 @@
 }
 
 #fundo {
-  background-image: url("img/escarabajo.png");
+  background-image: url("./assets/img/logo.jpg");
   background-position: center; 
   background-attachment: fixed;
   background-repeat: no-repeat   
 }
 
 body {
-  background: url('img/escarabajo.png') center center no-repeat fixed; 
+  background: url('./assets/img/logo.jpg') center center no-repeat fixed; 
   -webkit-background-size: cover;
   -moz-background-size: cover;
   -o-background-size: cover;
   background-size: cover;
-}
+} */

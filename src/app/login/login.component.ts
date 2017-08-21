@@ -13,21 +13,21 @@ import { ProvidersService } from '../services/providers.service';
 export class LoginComponent implements OnInit {
 
   error: any;
-  // user: Observable<firebase.User>;
+  user: Observable<firebase.User>;
 
 
-  constructor(public afAuth: ProvidersService, private router: Router) {
-    console.log(Error)
-    // this.user.subscribe(auth => {
-    //   if (auth) {
-    //     this.router.navigateByUrl('/home');
-    //   }
-    // });
+  constructor(public afAuth: ProvidersService, private router: Router, public af: AngularFireAuth) {
+    this.user = af.authState
+    this.user.subscribe(auth => {
+      if (auth) {
+        this.router.navigateByUrl('/pedido');
+      }
+    });
   }
 
   loginFb() {
     this.afAuth.loginWithFacebook().then((data) => {
-    this.router.navigate(['/home']);
+      this.router.navigate(['pedido']);
     })
   }
 

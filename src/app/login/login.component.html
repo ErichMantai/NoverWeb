@@ -1,23 +1,11 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Login</title>
-     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"> 
-</head>
-<body>
-    <div id="form-container">
-        <div class="panel" id="form-box">
-            <form action="index.html" method="post">
-                <img class="img-responsive" src="/src/assets/img/logo.jpg" alt="Escarabajo">
-                <div class="form-group">
-                    <button (click)= "loginFb" id="btn-login" type="button" class="btn-facebook form-control">
-                        <span class="error" *ngIf="error">{{ error }}</span>
-                         Entrar
-                    </button>
-                </div>
-            </form>
+<div class="container">
+    <form action="index.html" style="width: 300px;margin: auto;margin-top: 20%;" method="post">
+        <img class="img-responsive" src="./assets/img/logo1.png" alt="Escarabajo">
+        <div class="form-group">
+            <button (click)="loginFb()" id="btn-login" type="button" class="btn btn-block btn-social btn-facebook">
+                    <span class="error" *ngIf="error">{{ error }}</span>    
+                        <span class="fa fa-facebook"></span> Entrar
+                </button>
         </div>
-    </div>
-</body>
-</html>
+    </form>
+</div>
