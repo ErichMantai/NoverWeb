@@ -1,5 +1,5 @@
 import { BrowserModule } from '@angular/platform-browser';
-import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { BootstrapModalModule } from 'angular2-modal/plugins/bootstrap';
 import { AppMaterialModule } from './app-material/app-material.module';
 import { MdButtonModule } from '@angular/material';
@@ -18,6 +18,8 @@ import { RelatorioComponent } from './relatorio/relatorio.component';
 import { PedidoComponent } from './pedido/pedido.component';
 import { AngularFireDatabaseModule, AngularFireDatabase, FirebaseListObservable } from 'angularfire2/database';
 import { ModalProdutoComponent } from './modal-produto/modal-produto.component';
+import { FormsModule } from '@angular/forms';
+
 export const FirebaseConfig = {
   apiKey: 'AIzaSyAsKf60TwUwqcBCKg6P4em1P2X-nU9WYAE',
   authDomain: 'noverfood-555f0.firebaseapp.com',
@@ -47,10 +49,11 @@ export const FirebaseConfig = {
     AngularFireModule.initializeApp(FirebaseConfig),
     AngularFireDatabaseModule,
     AngularFireAuthModule,
-    routes
+    routes,
+    FormsModule
   ],
   providers: [ProvidersService, AngularFireAuth],
   bootstrap: [AppComponent],
-  entryComponents: [ ModalProdutoComponent ]
+  entryComponents: [ModalProdutoComponent]
 })
 export class AppModule { }

@@ -2,7 +2,7 @@ import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import {FormControl, Validators} from '@angular/forms';
 import { MdButtonModule, MdTableModule, MdIconModule, MdInputModule, MdCardModule,
-MdCheckboxModule, MdSelectModule} from '@angular/material';
+MdCheckboxModule, MdSelectModule, MdDialogModule} from '@angular/material';
 
 @NgModule({
   imports: [
@@ -15,7 +15,8 @@ MdCheckboxModule, MdSelectModule} from '@angular/material';
    MdInputModule,
    MdCardModule,
    MdCheckboxModule,
-   MdSelectModule
+   MdSelectModule,
+   MdDialogModule
   ]
 })
 export class AppMaterialModule { }

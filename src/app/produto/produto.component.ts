@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { Overlay, overlayConfigFactory } from 'angular2-modal';
 import { Modal, BSModalContext } from 'angular2-modal/plugins/bootstrap';
 import { ModalProdutoComponent } from './../modal-produto/modal-produto.component';
+import { Produtoclass } from './../services/produto/produtoclass';
 
 @Component({
   selector: 'app-produto',
