@@ -1,52 +1,10 @@
-<div class="modal-content">
-  <div class="modal-header" color="primary">
-    <button type="button" class="close" data-target="#myModal">&times;</button>
-    <h4 class="modal-title">Cadastrar Produto</h4>
-  </div>
-  <div class="modal-body">
-    <div class="row form-group">
-      <label class="col-md-4 control-label">Descrição</label>
-      <div class="col-md-5">
-        <input type="text" name="descricao" [(ngModel)]="produto.descricao" placeholder="Nome do Produto" class="form-control input-md" required="">
-      </div>
-    </div>
-
-    <div class="row form-group">
-      <label class="col-md-4 control-label">Valor Unitário</label>
-      <div class="col-md-5">
-        <input type="text" name="vlrunitario" [(ngModel)]="produto.valorunitario" placeholder="Valor Produto" class="form-control input-md" required="">
-      </div>
-    </div>
-
-    <div class="row form-group">
-      <label class="col-md-4 control-label" for="idAdmin">Promoção</label>
-      <div class="col-md-5">
-        <select name="isAdmin" id="idAdmin" name="idAdmin" class="form-control">
-            <option value="1">Sim</option>
-            <option value="2">Não</option>
-        </select>
-      </div>
-    </div>
-
-    <div class="row form-group">
-      <label class="col-md-4 control-label">Categoria</label>
-      <div class="col-md-5">
-        <select name="categoria" class="form-control">
-            <option value="1">Gourmet</option>
-            <option value="2">Bebidas</option>
-        </select>
-      </div>
-    </div>
-  </div>
-
-  <div class="modal-footer">
-    <div class="buttons">
-      <button (click)="postProduto()" md-mini-fab color="primary">
-        <md-icon>check</md-icon>
-      </button>
-      <button type="button" data-dismiss="modal" md-mini-fab color="primary">
-        <md-icon >cancel</md-icon>
-      </button>
-    </div>
-  </div>
-</div>
+<h1 md-dialog-title class="primary-color">Cadastro Produto</h1>
+<md-dialog-content class="accent-color">
+  <!-- <md-form-field>
+    <input mdInput tabindex="1" [(ngModel)]="produto.descricao">
+  </md-form-field> -->
+</md-dialog-content>
+<md-dialog-actions>
+  <button md-button tabindex="2">Salvar</button>
+  <button md-button tabindex="-1" md-dialog-close>Cancelar</button>
+</md-dialog-actions>

@@ -1,39 +1,38 @@
 import { Component, OnInit } from '@angular/core';
 import { DialogRef, ModalComponent, CloseGuard } from 'angular2-modal';
-import { BSModalContext } from 'angular2-modal/plugins/bootstrap';
-import { MdDialog, MD_DIALOG_DATA } from '@angular/material';
+import { MdDialogModule, MdDialogRef } from '@angular/material';
+import { ProdutoService } from './../services/produto/produto.service';
+import { Produto } from './../services/produto/produto'
 
 import { AngularFireDatabase, FirebaseListObservable } from 'angularfire2/database';
-
-export class Produtoclass {
-    $key: string;
-    descricao: string;
-    valorunitario: string;
-    promocao: boolean;
-}
 
 @Component({
     templateUrl: './modal-produto.component.html',
     styleUrls: ['./modal-produto.component.css'],
     selector: 'app-modal-produto',
     providers: []
-})
 
+})
 
 export class ModalProdutoComponent {
 
     lista: FirebaseListObservable<any>;
-    produto: Produtoclass;
+    produto: Produto;
 
-    constructor(public Af: AngularFireDatabase, public dialog: MdDialog) {
+    constructor(public Af: AngularFireDatabase,
+        public dialogRef: MdDialogRef<ModalProdutoComponent>,
+        private produtoService: ProdutoService) {
         this.lista = this.Af.list('/produtos');
-        this.produto = new Produtoclass();
+        this.produto = new Produto();
+        this.produtoService.findAll();
+    }
+    postProduto() {
+        this.produtoService.insert(this.produto)
+            .then(result => {
+                console.log("saved", result)
+            })
+
     }
 
-    postProduto() {
-        this.lista.push(this.produto).then(() => {
-            this.produto = new Produtoclass();
-        });
-    }
 
 }

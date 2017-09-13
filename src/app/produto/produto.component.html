@@ -25,27 +25,17 @@
             <table class="table table-bordered" cellspacing="0" cellpadding="0">
               <thead>
                 <tr>
-                  <th>Nome</th>
-                  <th>Valor</th>
+                  <th>Descrição</th>
+                  <th>Preço</th>
                   <th>Promoção</th>
                   <th class="actions">Ações</th>
                 </tr>
               </thead>
               <tbody>
-                <tr>
-                  <td>Double Costela Burguer</td>
-                  <td>R$ 20,50</td>
-                  <td>Não</td>
-                  <td class="actions">
-                    <a class="btn btn-success btn-xs" href="view.html">Ver Detalhes</a>
-                    <a class="btn btn-warning btn-xs" href="edit.html">Editar</a>
-                    <a class="btn btn-danger btn-xs" href="#" data-toggle="modal" data-target="#delete-modal">Excluir</a>
-                  </td>
-                </tr>
-                <tr>
-                  <td>Double Costela Burguer</td>
-                  <td>R$ 20,50</td>
-                  <td>Não</td>
+                <tr *ngFor="let produto of produtos">
+                  <td>{{produto.descricao}}</td>
+                  <td>{{produto.valor | currency:'BRL':true:'2.2-2'}}</td>
+                  <td>{{produto.promocao ? 'Sim' : 'Não'}}</td>
                   <td class="actions">
                     <a class="btn btn-success btn-xs" href="view.html">Ver Detalhes</a>
                     <a class="btn btn-warning btn-xs" href="edit.html">Editar</a>

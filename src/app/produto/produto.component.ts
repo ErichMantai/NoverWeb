@@ -1,23 +1,32 @@
 import { Component, OnInit } from '@angular/core';
-import { Overlay, overlayConfigFactory } from 'angular2-modal';
-import { Modal, BSModalContext } from 'angular2-modal/plugins/bootstrap';
 import { ModalProdutoComponent } from './../modal-produto/modal-produto.component';
-import { Produtoclass } from './../services/produto/produtoclass';
+import { Produto } from './../services/produto/produto';
+import { MdDialogModule, MdDialog } from '@angular/material';
+import { ProdutoService } from './../services/produto/produto.service'
 
 @Component({
   selector: 'app-produto',
   templateUrl: './produto.component.html',
   styleUrls: ['./produto.component.css'],
-  providers: [Modal]
+  // entryComponents: [ModalProdutoComponent]
 })
 export class ProdutoComponent implements OnInit {
 
-  constructor(public modal: Modal) { }
 
-  ngOnInit() {
+  produtos: Array<Produto> = []
+
+  constructor(public produtoService: ProdutoService,
+    public dialog: MdDialog) { }
+
+  ngOnInit(): void {
+    this.produtoService.findAll()
+      .then(result => {
+        this.produtos = result;
+      })
   }
+
   openCustom() {
-    return this.modal.open(ModalProdutoComponent, overlayConfigFactory({}, BSModalContext));
+    this.dialog.open(ModalProdutoComponent);
   }
 
 }
