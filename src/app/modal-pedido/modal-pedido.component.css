@@ -1,0 +1,14 @@
+div.modal-header {
+    background-color: #337ab7
+}
+
+h4.modal-title {
+    color: white;
+}
+
+button.close {
+    color: white;
+}
+button.mat-mini-fab.mat-primary {
+    background-color: #337ab7;
+}

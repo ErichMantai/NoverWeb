@@ -21,7 +21,7 @@
 
 .content {
     width: 100%;
-    padding: 20px;
+    padding: 0px 20px 0px 20px;
 }
 
 .menu {
@@ -64,5 +64,62 @@ app-login {
 }
 
 app-pedido, app-produto, app-cliente, app-relatorio {
-     width: 100%; 
+     width: 100%;
 }
+
+
+html, body {
+  height: 100%;
+}
+
+.app-container {
+  width: 100%;
+  height: 100%;
+  border: 1px solid rgba(0, 0, 0, 0.5);
+}
+
+.app-sidenav-content {
+  display: flex;
+  height: 100%;
+  align-items: center;
+  justify-content: center;
+}
+
+.app-sidenav {
+  padding: 20px;
+}
+
+.app-sidenav-icon {
+  padding: 0 14px;
+}
+
+.app-sidenav-spacer {
+  flex: 1 1 auto;
+}
+
+.app-sidenav-menu {
+  cursor: pointer;
+}
+
+md-sidenav li, md-sidenav li > a, md-sidenav ul{
+  list-style-type: none;
+  margin: 0px;
+}
+
+md-sidenav, md-sidenav ul{
+  padding: 0px !important;
+  margin: 0px;
+}
+
+md-sidenav button > span > md-icon {
+  margin-right: 15px !important;
+}
+md-sidenav button {
+  width: 200px;
+  /*font-weight: 600 !important;*/
+  color: #7C7C7C !important;
+  padding: 10px !important;
+  text-align: left !important;
+}
+
+

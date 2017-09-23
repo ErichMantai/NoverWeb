@@ -1,4 +1,37 @@
+<md-toolbar color="primary">
+    <span class="app-sidenav-menu" (click)="openMenu()">
+      <md-icon>menu</md-icon>
+      <span>Escarabajo Hamburgueria Bistrô</span>
+    </span>
+  <span class="app-sidenav-spacer"></span>
+  <md-icon class="app-sidenav-icon">favorite</md-icon>
+  <md-icon class="app-sidenav-icon">delete</md-icon>
+</md-toolbar>
 
+<md-sidenav-container class="app-container" *ngIf="router.url != '/login'">
+  <md-sidenav #sidenav class="app-sidenav" [mode]="mode"  color="primary"
+              [fixedInViewport]="fixed" [fixedTopGap]="fixedTop" [fixedBottomGap]="fixedBottom">
+    <ul>
+      <li><button md-button color="primary" routerLink="/produto"><md-icon>add_shopping_cart</md-icon> Pedidos</button></li>
+      <li><button md-button color="primary" routerLink="/cardapio"><md-icon>restaurant</md-icon>Cardápio</button></li>
+      <li><button md-button color="primary" routerLink="/produto"><md-icon>local_drink</md-icon>Produtos</button></li>
+      <li><button md-button color="primary" routerLink="/cliente"><md-icon>person_pin_circle</md-icon>Clientes</button></li>
+      <li><button md-button color="primary" routerLink="/categoria"><md-icon>assignment</md-icon>Categorias</button></li>
+      <li><button md-button color="primary" routerLink="/relatorio"><md-icon>list</md-icon>Relatório de Vendas</button></li>
+      <!--<li><a routerLink="/produto">Produtos</a></li>-->
+      <!--<li><a routerLink="/produto">Produtos</a></li>-->
+      <!--<li><a routerLink="/cliente">Clientes</a></li>-->
+      <!--<li><a routerLink="/relatorio">Relatório de Vendas</a></li>-->
+    </ul>
+  </md-sidenav>
+
+  <div class="app-sidenav-content">
+    <router-outlet></router-outlet>
+  </div>
+
+</md-sidenav-container>
+
+<!--
     <nav class="navbar navbar-inverse" *ngIf="router.url != '/login'">
         <div class="container-fluid">
             <div class="navbar-header">
@@ -6,7 +39,7 @@
 					<span class="icon-bar"></span>
 					<span class="icon-bar"></span>
 					<span class="icon-bar"></span>
-				</button>
+				    </button>
                 <a class="navbar-brand" href="#">Escarabajo Hamburgueria Bistrô</a>
             </div>
             <div class="collapse navbar-collapse">
@@ -19,8 +52,7 @@
     <div class="main">
         <div class="menu">
             <ul>
-                <!-- <li class="visible-xs"	><a href="#">Sair</a></li> -->
-                <li class="active"><a routerLink="/pedido">Pedidos</a></li>
+                <li><a routerLink="/produto">Produtos</a></li>
                 <li><a routerLink="/produto">Produtos</a></li>
                 <li><a routerLink="/cliente">Clientes</a></li>
                 <li><a routerLink="/relatorio">Relatório de Vendas</a></li>
@@ -28,3 +60,5 @@
         </div>
         <router-outlet></router-outlet>
     </div>
+
+-->

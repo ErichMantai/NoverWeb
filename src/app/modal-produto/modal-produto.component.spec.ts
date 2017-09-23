@@ -2,7 +2,7 @@ import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
 import { ModalProdutoComponent } from './modal-produto.component';
 
-describe('ModalProdutoComponent', () => {
+describe('GenericModalComponent', () => {
   let component: ModalProdutoComponent;
   let fixture: ComponentFixture<ModalProdutoComponent>;
 

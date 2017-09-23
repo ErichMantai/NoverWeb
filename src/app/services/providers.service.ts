@@ -17,7 +17,7 @@ export class ProvidersService {
 
   user: Observable<firebase.User>;
 
-  constructor(public af: AngularFireAuth) { 
+  constructor(public af: AngularFireAuth) {
     this.user = af.authState;
   }
 

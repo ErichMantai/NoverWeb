@@ -2,7 +2,7 @@ import { TestBed, inject } from '@angular/core/testing';
 
 import { ProdutoService } from './produto.service';
 
-describe('ProdutoService', () => {
+describe('GenericService', () => {
   beforeEach(() => {
     TestBed.configureTestingModule({
       providers: [ProdutoService]

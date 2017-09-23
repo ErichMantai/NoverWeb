@@ -1,17 +1,25 @@
-import { NgModule } from '@angular/core';
-import { CommonModule } from '@angular/common';
-import { FormControl, Validators } from '@angular/forms';
+import {ElementRef, NgModule, Renderer2} from '@angular/core';
+import {CommonModule} from '@angular/common';
 import {
-  MdButtonModule, MdTableModule, MdIconModule, MdInputModule, MdCardModule,
-  MdCheckboxModule, MdSelectModule, MdDialogModule, MdDialog,
-  MD_PLACEHOLDER_GLOBAL_OPTIONS, MdRadioModule, MaterialModule, MdCoreModule,
-  MdAutocompleteModule, PlatformModule, MdTable
+  MD_PLACEHOLDER_GLOBAL_OPTIONS,
+  MdAutocompleteModule,
+  MdButtonModule,
+  MdCardModule,
+  MdCheckboxModule,
+  MdDialogModule,
+  MdIconModule,
+  MdInputModule,
+  MdPaginatorModule,
+  MdSelectModule,
+  MdTableModule,
+  MdSnackBarModule,
+  MatSidenavModule,
+  MatToolbarModule,
+  MdDrawerContainer
 } from '@angular/material';
 
 @NgModule({
   exports: [
-    MaterialModule,
-    MdCoreModule,
     MdAutocompleteModule,
     CommonModule,
     MdButtonModule,
@@ -22,24 +30,16 @@ import {
     MdCheckboxModule,
     MdSelectModule,
     MdDialogModule,
-    MdTableModule
-  ],
-  imports: [
-    MaterialModule,
-    MdCoreModule,
-    MdAutocompleteModule,
-    CommonModule,
-    MdButtonModule,
     MdTableModule,
-    MdIconModule,
-    MdInputModule,
-    MdCardModule,
-    MdCheckboxModule,
-    MdSelectModule,
-    MdDialogModule
+    MdPaginatorModule,
+    MdSnackBarModule,
+    MatSidenavModule,
+    MatToolbarModule
+
   ],
   providers: [
-    { provide: MD_PLACEHOLDER_GLOBAL_OPTIONS, useValue: { float: 'always' } }
+    {provide: MD_PLACEHOLDER_GLOBAL_OPTIONS, useValue: {float: 'always'}}
   ]
 })
-export class AppMaterialModule { }
+export class AppMaterialModule {
+}

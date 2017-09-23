@@ -1,29 +1,23 @@
-import { Component, OnInit } from '@angular/core';
-import { Router } from '@angular/router';
-import { Observable } from 'rxjs/Observable';
-import { ProvidersService } from '../services/providers.service';
+import {Component} from '@angular/core';
+import 'rxjs/add/operator/startWith';
+import 'rxjs/add/observable/merge';
+import 'rxjs/add/operator/map';
+import 'rxjs/add/observable/of';
+import {GenericComponent} from './../common/generic.component'
+import {MdDialog} from "@angular/material/dialog";
+import {ModalPedidoComponent} from "../modal-pedido/modal-pedido.component";
+import {Pedido} from "../class/pedido";
+import {PedidoService} from "../services/pedido.service";
 
 @Component({
   selector: 'app-pedido',
   templateUrl: './pedido.component.html',
   styleUrls: ['./pedido.component.css'],
 })
-export class PedidoComponent implements OnInit {
-  name: any;
-  state: String = '';
-  // user: Observable<firebase.User>;
-
-  constructor(public afAuth: ProvidersService, private router: Router) {
-
-    // this.user.subscribe(auth => {
-    //   if (auth) {
-    //     this.name = auth;
-    //   }
-    // });
-
+export class PedidoComponent extends GenericComponent<Pedido> {
+  constructor(public pedidoService: PedidoService,
+              public dialog: MdDialog) {
+    super(pedidoService, dialog);
+    this.usesModal(ModalPedidoComponent)
   }
-
-  ngOnInit() {
-  }
-
 }
