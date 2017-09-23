@@ -1,17 +1,17 @@
 export class Produto {
     $key: string;
     descricao: string;
-    valorunitario: string;
+    valor: string;
     promocao: boolean;
 
     static newInstance($key: string,
         descricao: string,
-        valorunitario: string,
+        valor: string,
         promocao: boolean): Produto {
         const obj = new Produto()
         obj.$key = $key;
         obj.descricao = descricao;
-        obj.valorunitario = valorunitario;
+        obj.valor = valor;
         obj.promocao = promocao;
         return obj;
     }

@@ -2,9 +2,7 @@ import { BrowserModule } from '@angular/platform-browser';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { BootstrapModalModule } from 'angular2-modal/plugins/bootstrap';
 import { AppMaterialModule } from './app-material/app-material.module';
-import { MdButtonModule } from '@angular/material';
-import { MdDialogModule } from '@angular/material';
-import { NgModule } from '@angular/core';
+import { NgModule, CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
 import { ModalModule } from 'angular2-modal';
 import { HttpModule } from '@angular/http';
 import { AngularFireModule } from 'angularfire2';
@@ -23,6 +21,7 @@ import { FormsModule } from '@angular/forms';
 import { ProdutoService } from './services/produto/produto.service'
 
 
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -33,11 +32,13 @@ import { ProdutoService } from './services/produto/produto.service'
     PedidoComponent,
     ModalProdutoComponent
   ],
+  exports: [
+    AppMaterialModule
+  ],
   imports: [
     BrowserModule,
     ModalModule.forRoot(),
     BootstrapModalModule,
-    MdDialogModule,
     BrowserAnimationsModule,
     AppMaterialModule,
     HttpModule,
@@ -49,6 +50,7 @@ import { ProdutoService } from './services/produto/produto.service'
   ],
   providers: [ProvidersService, AngularFireAuth, ProdutoService],
   bootstrap: [AppComponent],
-  entryComponents: [ModalProdutoComponent]
+  entryComponents: [ModalProdutoComponent],
+  schemas: [ CUSTOM_ELEMENTS_SCHEMA ]
 })
 export class AppModule { }

@@ -1,55 +1,51 @@
 <div class="content">
-  <div class="container-fluid">
-    <div class="row">
-      <div class="col-lg-12">
-        <div class="col-md-6" style="right:-28%;">
-          <div class="input-group h2">
-            <input name="data[search]" class="form-control" id="search" type="text" placeholder="Pesquisar Gourmets">
-            <span class="input-group-btn">
-                <button class="btn btn-primary" type="submit">
-                    <span class="glyphicon glyphicon-search"></span>
-            </button>
-            </span>
-          </div>
-        </div>
-      </div>
-    </div>
+  <div class="example-container mat-elevation-z8">
+    <md-table #table [dataSource]="dataSource">
+      <!--- Note that these columns can be defined in any order.
+        The actual rendered columns are set as a property on the row definition" -->
 
-    <div class="panel panel-primary">
-      <div class="panel-heading">
-        <h3 class="panel-title">Produtos</h3>
-      </div>
-      <div class="panel-body">
-        <div id="list" class="row">
-          <div class="table-responsive col-md-12">
-            <table class="table table-bordered" cellspacing="0" cellpadding="0">
-              <thead>
-                <tr>
-                  <th>Descrição</th>
-                  <th>Preço</th>
-                  <th>Promoção</th>
-                  <th class="actions">Ações</th>
-                </tr>
-              </thead>
-              <tbody>
-                <tr *ngFor="let produto of produtos">
-                  <td>{{produto.descricao}}</td>
-                  <td>{{produto.valor | currency:'BRL':true:'2.2-2'}}</td>
-                  <td>{{produto.promocao ? 'Sim' : 'Não'}}</td>
-                  <td class="actions">
-                    <a class="btn btn-success btn-xs" href="view.html">Ver Detalhes</a>
-                    <a class="btn btn-warning btn-xs" href="edit.html">Editar</a>
-                    <a class="btn btn-danger btn-xs" href="#" data-toggle="modal" data-target="#delete-modal">Excluir</a>
-                  </td>
-                </tr>
-              </tbody>
-            </table>
-          </div>
-        </div>
-        <button (click)="openCustom()" md-mini-fab color="primary">
-        <md-icon >add</md-icon>
-      </button>
-      </div>
-    </div>
+      <!-- Position Column -->
+      <ng-container mdColumnDef="descricao">
+        <md-header-cell *mdHeaderCellDef> No. </md-header-cell>
+        <md-cell *mdCellDef="let element"> {{element.descricao}} </md-cell>
+      </ng-container>
+
+      <!-- Name Column -->
+      <ng-container mdColumnDef="valor">
+        <md-header-cell *mdHeaderCellDef> Valor </md-header-cell>
+        <md-cell *mdCellDef="let element"> {{element.valor}} </md-cell>
+      </ng-container>
+
+      <ng-container mdColumnDef="promocao">
+        <md-header-cell *mdHeaderCellDef> Promoção </md-header-cell>
+        <md-cell *mdCellDef="let element"> {{element.promocao}} </md-cell>
+      </ng-container>
+
+      <ng-container mdColumnDef="acoes">
+        <md-header-cell *mdHeaderCellDef> Ações </md-header-cell>
+        <md-cell *mdCellDef="let element"> 
+          <button md-button color="primary" type="button" (click)="modal(element)">
+            <md-icon>mode_edit</md-icon>
+          </button> 
+            <button md-button color="warn" type="button" (click)="delete(element)" >
+            <md-icon>delete</md-icon>
+          </button>   
+        </md-cell>
+      </ng-container>
+
+      <md-header-row *mdHeaderRowDef="displayedColumns"></md-header-row>
+      <md-row *mdRowDef="let row; columns: displayedColumns;"></md-row>
+    </md-table>
+       <md-paginator #paginator
+                    [length]="database.data.length"
+                    [pageIndex]="0"
+                    [pageSize]="25"
+                    [pageSizeOptions]="[1, 5, 10, 25, 100]">
+      </md-paginator>
   </div>
+
+  <br>
+  <button (click)="modal()" md-mini-fab color="primary">
+    <md-icon >add</md-icon>
+  </button>
 </div>

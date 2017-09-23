@@ -21,30 +21,39 @@ export class ProdutoService {
   }
 
   findAll(): Promise<any> {
-    return this.http.get(this.baseUrl + `/produtos.json`)
+     return this.http.get(this.baseUrl + `/produtos.json`)
       .toPromise()
       .then(response => this.convert(response.json()))
       .catch(this.errorHandler);
   }
 
   delete(obj: Produto) {
-    return this.http.delete(this.baseUrl + `/${obj.$key}.json`)
+    return this.http.delete(this.baseUrl + `/produtos/${obj.$key}.json`)
       .toPromise()
       .catch(this.errorHandler);
   }
 
   update(obj: Produto) {
+    const $key = obj.$key
+    delete obj.$key
     const json = JSON.stringify(obj)
 
-    return this.http.patch(this.baseUrl + `/${obj.$key}.json`, json)
+    return this.http.patch(this.baseUrl + `/produtos/${$key}.json`, json)
       .toPromise()
       .catch(this.errorHandler);
   }
 
   private convert(parsedResponse) {
-    return Object.keys(parsedResponse)
-      .map(id => (Produto.parseResponse(parsedResponse[id])))
-      .sort((a, b) => (a.descricao && b.descricao) ? a.descricao.localeCompare(b.descricao) : 0);
+    console.log(parsedResponse)
+    return parsedResponse
+      ? Object.keys(parsedResponse)
+      .map(id => {
+        const obj = Produto.parseResponse(parsedResponse[id])
+        obj.$key = id
+        return obj
+      })
+      .sort((a, b) => (a.descricao && b.descricao) ? a.descricao.localeCompare(b.descricao) : 0)
+      : null;
   }
 
 }

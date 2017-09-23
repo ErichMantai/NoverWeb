@@ -1,10 +1,26 @@
-<h1 md-dialog-title class="primary-color">Cadastro Produto</h1>
-<md-dialog-content class="accent-color">
-  <!-- <md-form-field>
-    <input mdInput tabindex="1" [(ngModel)]="produto.descricao">
-  </md-form-field> -->
+<md-dialog-header>
+  <h1 md-dialog-title class="primary-color">Cadastro Produto</h1>
+</md-dialog-header>
+<!-- <h1 md-dialog-title class="primary-color">Cadastro Produto</h1> -->
+<md-dialog-content style="height: 72%;">
+
+  <form class="formwidth" (ngSubmit)="onSubmit()" #myForm="ngForm">
+    <md-grid-list cols="4">
+      <md-grid-tile colspan="2" rowspan="1">
+        <md-form-field>
+          <input mdInput placeholder="Descrição" id="descricao" [(ngModel)]="produto.descricao" name="descricao">
+        </md-form-field>
+      </md-grid-tile>
+      <md-grid-tile colspan="2" rowspan="1">
+        <md-form-field>
+          <input mdInput placeholder="Valor" id="valor" [(ngModel)]="produto.valor" name="valor">
+        </md-form-field>
+      </md-grid-tile>
+    </md-grid-list>
+    <md-checkbox style="margin-left: 38px" [(ngModel)]="produto.promocao" name="promocao">Promoção</md-checkbox>
+  </form>
 </md-dialog-content>
-<md-dialog-actions>
-  <button md-button tabindex="2">Salvar</button>
-  <button md-button tabindex="-1" md-dialog-close>Cancelar</button>
+<md-dialog-actions style="float: right;">
+  <button md-button tabindex="2" md-dialog-close (click)="postProduto()">Salvar</button>
+  <button md-button tabindex="1" md-dialog-close>Cancelar</button>
 </md-dialog-actions>
