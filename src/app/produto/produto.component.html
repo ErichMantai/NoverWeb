@@ -5,7 +5,7 @@
       <div *ngFor="let col of columns">
         <ng-container *ngIf="!col.noValue" mdColumnDef="{{col.field}}">
           <md-header-cell *mdHeaderCellDef> {{col.label}}</md-header-cell>
-          <md-cell *mdCellDef="let element"> {{element[col['field']]}}</md-cell>
+          <md-cell *mdCellDef="let element"> {{getField(element, col['field'])}}</md-cell>
         </ng-container>
       </div>
 

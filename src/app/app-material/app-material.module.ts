@@ -1,6 +1,9 @@
-import {ElementRef, NgModule, Renderer2} from '@angular/core';
+import {NgModule} from '@angular/core';
 import {CommonModule} from '@angular/common';
 import {
+  MatAutocompleteModule,
+  MatSidenavModule,
+  MatToolbarModule,
   MD_PLACEHOLDER_GLOBAL_OPTIONS,
   MdAutocompleteModule,
   MdButtonModule,
@@ -11,11 +14,8 @@ import {
   MdInputModule,
   MdPaginatorModule,
   MdSelectModule,
-  MdTableModule,
   MdSnackBarModule,
-  MatSidenavModule,
-  MatToolbarModule,
-  MdDrawerContainer
+  MdTableModule,
 } from '@angular/material';
 
 @NgModule({
@@ -34,7 +34,8 @@ import {
     MdPaginatorModule,
     MdSnackBarModule,
     MatSidenavModule,
-    MatToolbarModule
+    MatToolbarModule,
+    MatAutocompleteModule
 
   ],
   providers: [

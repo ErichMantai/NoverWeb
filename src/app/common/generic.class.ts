@@ -1,5 +1,5 @@
 export class GenericClass {
-  $key: string;
+  key: string;
   constructor() {
   }
 

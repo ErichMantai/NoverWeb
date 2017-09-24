@@ -8,14 +8,14 @@ export class Cliente extends GenericClass {
   tipoCliente: string;
   enderecos: Array<Endereco>;
 
-  static newInstance($key: string,
+  static newInstance(key: string,
                      email: string,
                      senha: string,
                      telefone: string,
                      tipoCliente: string,
                      enderecos: Array<Endereco>): Cliente {
     const obj = new Cliente();
-    obj.$key = $key;
+    obj.key = key;
     obj.email = email;
     obj.senha = senha;
     obj.telefone = telefone;

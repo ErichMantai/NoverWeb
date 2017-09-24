@@ -7,12 +7,12 @@ export class Pedido extends GenericClass {
   status: StatusPedido;
   itens: Array<ItemPedido>;
 
-  static newInstance($key: string,
+  static newInstance(key: string,
                      data: Date,
                      status: StatusPedido,
                      itens: Array<ItemPedido>): Pedido {
     const obj = new Pedido();
-    obj.$key = $key;
+    obj.key = key;
     obj.data = data;
     obj.status = status;
     obj.itens = itens;

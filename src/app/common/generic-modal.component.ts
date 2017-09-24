@@ -22,7 +22,7 @@ export class GenericModalComponent<T extends GenericClass> implements OnInit {
 
   post() {
     let result;
-    if (this.element.$key) {
+    if (this.element.key) {
       result = this.genericService.update(this.element)
     } else {
       result = this.genericService.insert(this.element)

@@ -7,16 +7,16 @@ export class Produto extends GenericClass {
   valor: number;
   promocao: boolean;
   detalhes: Array<ProdutoDetalhe>;
-  cardapio: Array<Cardapio>;
+  cardapio: Cardapio;
 
-  static newInstance($key: string,
+  static newInstance(key: string,
                      descricao: string,
                      valor: number,
                      promocao: boolean,
                      detalhes: Array<ProdutoDetalhe>,
-                     cardapio: Array<Cardapio>): Produto {
+                     cardapio: Cardapio): Produto {
     const obj = new Produto()
-    obj.$key = $key;
+    obj.key = key;
     obj.descricao = descricao;
     obj.valor = valor;
     obj.promocao = promocao;

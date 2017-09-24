@@ -30,17 +30,17 @@ export class GenericService<T extends GenericClass> {
   }
 
   delete(obj: T) {
-    return this._http.delete(this._baseUrl + `/${this._module}/${obj.$key}.json`)
+    return this._http.delete(this._baseUrl + `/${this._module}/${obj.key}.json`)
       .toPromise()
       .catch(this._errorHandler);
   }
 
   update(obj: T) {
-    const $key = obj.$key;
-    delete obj.$key;
+    const key = obj.key;
+    delete obj.key;
     const json = JSON.stringify(obj)
 
-    return this._http.patch(this._baseUrl + `/${this._module}/${$key}.json`, json)
+    return this._http.patch(this._baseUrl + `/${this._module}/${key}.json`, json)
       .toPromise()
       .catch(this._errorHandler);
   }
@@ -59,7 +59,7 @@ export class GenericService<T extends GenericClass> {
       values = Object.keys(parsedResponse)
         .map(id => {
           const obj = this.type.parseResponse(parsedResponse[id]);
-          obj.$key = id;
+          obj.key = id;
           return obj
         });
 
