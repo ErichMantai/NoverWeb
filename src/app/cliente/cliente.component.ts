@@ -18,6 +18,12 @@ export class ClienteComponent extends GenericComponent<Cliente> {
   constructor(public clienteService: ClienteService,
               public dialog: MdDialog) {
     super(clienteService, dialog);
-    this.usesModal(ModalClienteComponent)
+    this.usesModal(ModalClienteComponent);
+    this.columns = [
+      {label: 'E-mail', field: 'email'},
+      {label: 'Telefone', field: 'telefone'},
+      {label: 'Tipo Cliente', field: 'tipoCliente'},
+      {label: 'Ações', field: 'acoes', noValue: true}
+    ];
   }
 }

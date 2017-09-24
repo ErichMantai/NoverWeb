@@ -72,12 +72,13 @@ export class Datasource<T extends GenericClass> extends DataSource<any> {
 }
 
 export class GenericComponent<T extends GenericClass> implements OnInit {
-
-  displayedColumns = ['descricao', 'valor', 'promocao', 'acoes'];
+  private _columns = []
+  private _displayedColumns = [];
   database = new Database<T>();
   dataSource: Datasource<T> | null;
   modalComponent: ComponentType<T> | TemplateRef<T>;
   modalConfig: MdDialogConfig;
+  private _type: T;
 
 
   elements: Array<T> = []
@@ -107,9 +108,10 @@ export class GenericComponent<T extends GenericClass> implements OnInit {
 
   modal(element: T) {
     if (this.modalComponent) {
-      const dialogRef = this.dialog.open(this.modalComponent, this.modalConfig || {
-        height: '200px',
-        width: '600px',
+      console.log(this.modalConfig)
+      const dialogRef = this.dialog.open(this.modalComponent,  {
+        height: (this.modalConfig ? this.modalConfig['height'] : '200px'),
+        width: (this.modalConfig ? this.modalConfig['width'] : '650px'),
         data: element
       });
       dialogRef.componentInstance['element'] = element
@@ -120,5 +122,29 @@ export class GenericComponent<T extends GenericClass> implements OnInit {
 
   usesModal(modalComponent: any) {
     this.modalComponent = modalComponent;
+  }
+
+
+  get type(): T {
+    return this._type;
+  }
+
+  set type(value: T) {
+    this._type = value;
+  }
+
+
+  get columns(): Array<any> {
+    return this._columns;
+  }
+
+  set columns(value: Array<any>) {
+    this._columns = value;
+  }
+
+
+  get displayedColumns(): Array<any> {
+    return this.columns
+      .map(col => col.field);
   }
 }

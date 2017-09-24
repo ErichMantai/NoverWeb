@@ -15,9 +15,16 @@ import {CardapioService} from "../services/cardapio.service";
   styleUrls: ['./cardapio.component.css'],
 })
 export class CardapioComponent extends GenericComponent<Cardapio> {
-  constructor(public categoriaService: CardapioService,
+  constructor(public cardapioService: CardapioService,
               public dialog: MdDialog) {
-    super(categoriaService, dialog);
+    super(cardapioService, dialog);
     this.usesModal(ModalCardapioComponent)
+    this.columns = [
+      {label: 'Descrição', field: 'descricao'},
+      {label: 'Ações', field: 'acoes', noValue: true}
+    ];
+    this.modalConfig = {
+      width: '280px'
+    }
   }
 }

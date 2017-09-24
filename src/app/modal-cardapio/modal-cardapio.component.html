@@ -1,23 +1,17 @@
 <md-dialog-header>
-  <h1 md-dialog-title class="primary-color">Cadastro Produto</h1>
+  <h1 md-dialog-title class="primary-color">Cadastro de Cardápios</h1>
 </md-dialog-header>
 <!-- <h1 md-dialog-title class="primary-color">Cadastro Produto</h1> -->
 <md-dialog-content>
 
   <form class="formwidth" (ngSubmit)="onSubmit()" #myForm="ngForm">
-    <md-grid-list cols="4">
-      <md-grid-tile colspan="2" rowspan="1">
+    <md-grid-list cols="1">
+      <md-grid-tile colspan="12" rowspan="1">
         <md-form-field>
           <input mdInput placeholder="Descrição" id="descricao" [(ngModel)]="element.descricao" name="descricao">
         </md-form-field>
       </md-grid-tile>
-      <md-grid-tile colspan="2" rowspan="1">
-        <md-form-field>
-          <input mdInput placeholder="Valor" id="valor" [(ngModel)]="element.valor" name="valor">
-        </md-form-field>
-      </md-grid-tile>
     </md-grid-list>
-    <md-checkbox style="margin-left: 38px" [(ngModel)]="element.promocao" name="promocao">Promoção</md-checkbox>
   </form>
 </md-dialog-content>
 <md-dialog-actions style="float: right;">

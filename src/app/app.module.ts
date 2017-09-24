@@ -14,8 +14,6 @@ import {AppComponent} from './app.component';
 import {routes} from './app.routes';
 
 
-
-
 import {RelatorioComponent} from './relatorio/relatorio.component';
 import {LoginComponent} from './login/login.component';
 import {ProdutoComponent} from './produto/produto.component';
@@ -77,7 +75,20 @@ import {CategoriaComponent} from "./categoria/categoria.component";
     CategoriaService
   ],
   bootstrap: [AppComponent],
-  entryComponents: [ModalProdutoComponent],
-  schemas: [ CUSTOM_ELEMENTS_SCHEMA ]
+  entryComponents: [
+    ProdutoComponent,
+    ClienteComponent,
+    RelatorioComponent,
+    CardapioComponent,
+    CategoriaComponent,
+    PedidoComponent,
+    ModalProdutoComponent,
+    ModalClienteComponent,
+    ModalCategoriaComponent,
+    ModalPedidoComponent,
+    ModalCardapioComponent
+  ],
+  schemas: [CUSTOM_ELEMENTS_SCHEMA]
 })
-export class AppModule { }
+export class AppModule {
+}

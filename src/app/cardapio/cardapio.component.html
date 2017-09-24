@@ -1,51 +1,39 @@
 <div class="content">
   <div class="example-container mat-elevation-z8">
     <md-table #table [dataSource]="dataSource">
-      <!--- Note that these columns can be defined in any order.
-        The actual rendered columns are set as a property on the row definition" -->
 
-      <!-- Position Column -->
-      <ng-container mdColumnDef="descricao">
-        <md-header-cell *mdHeaderCellDef> No. </md-header-cell>
-        <md-cell *mdCellDef="let element"> {{element.descricao}} </md-cell>
-      </ng-container>
-
-      <!-- Name Column -->
-      <ng-container mdColumnDef="valor">
-        <md-header-cell *mdHeaderCellDef> Valor </md-header-cell>
-        <md-cell *mdCellDef="let element"> {{element.valor}} </md-cell>
-      </ng-container>
-
-      <ng-container mdColumnDef="promocao">
-        <md-header-cell *mdHeaderCellDef> Promoção </md-header-cell>
-        <md-cell *mdCellDef="let element"> {{element.promocao}} </md-cell>
-      </ng-container>
+      <div *ngFor="let col of columns">
+        <ng-container *ngIf="!col.noValue" mdColumnDef="{{col.field}}">
+          <md-header-cell *mdHeaderCellDef> {{col.label}}</md-header-cell>
+          <md-cell *mdCellDef="let element"> {{element[col['field']]}}</md-cell>
+        </ng-container>
+      </div>
 
       <ng-container mdColumnDef="acoes">
-        <md-header-cell *mdHeaderCellDef> Ações </md-header-cell>
-        <md-cell *mdCellDef="let element"> 
+        <md-header-cell *mdHeaderCellDef> Ações</md-header-cell>
+        <md-cell *mdCellDef="let element">
           <button md-button color="primary" type="button" (click)="modal(element)">
             <md-icon>mode_edit</md-icon>
-          </button> 
-            <button md-button color="warn" type="button" (click)="delete(element)" >
+          </button>
+          <button md-button color="warn" type="button" (click)="delete(element)">
             <md-icon>delete</md-icon>
-          </button>   
+          </button>
         </md-cell>
       </ng-container>
 
       <md-header-row *mdHeaderRowDef="displayedColumns"></md-header-row>
       <md-row *mdRowDef="let row; columns: displayedColumns;"></md-row>
     </md-table>
-       <md-paginator #paginator
-                    [length]="database.data.length"
-                    [pageIndex]="0"
-                    [pageSize]="25"
-                    [pageSizeOptions]="[1, 5, 10, 25, 100]">
-      </md-paginator>
+    <md-paginator #paginator
+                  [length]="database.data.length"
+                  [pageIndex]="0"
+                  [pageSize]="25"
+                  [pageSizeOptions]="[1, 5, 10, 25, 100]">
+    </md-paginator>
   </div>
 
   <br>
   <button (click)="modal()" md-mini-fab color="primary">
-    <md-icon >add</md-icon>
+    <md-icon>add</md-icon>
   </button>
 </div>

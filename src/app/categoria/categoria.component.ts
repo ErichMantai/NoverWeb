@@ -17,7 +17,11 @@ import {CategoriaService} from "../services/categoria.service";
 export class CategoriaComponent extends GenericComponent<Categoria> {
   constructor(public categoriaService: CategoriaService,
               public dialog: MdDialog) {
-    super(categoriaService, dialog)
-    this.usesModal(ModalCategoriaComponent)
+    super(categoriaService, dialog);
+    this.usesModal(ModalCategoriaComponent);
+    this.columns = [
+      {label: 'Descrição', field: 'descricao'},
+      {label: 'Ações', field: 'acoes', noValue: true}
+    ];
   }
 }

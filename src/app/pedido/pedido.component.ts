@@ -18,6 +18,11 @@ export class PedidoComponent extends GenericComponent<Pedido> {
   constructor(public pedidoService: PedidoService,
               public dialog: MdDialog) {
     super(pedidoService, dialog);
-    this.usesModal(ModalPedidoComponent)
+    this.usesModal(ModalPedidoComponent);
+    this.columns = [
+      {label: 'Data', field: 'data'},
+      {label: 'Status', field: 'status'},
+      {label: 'Ações', field: 'acoes', noValue: true}
+    ];
   }
 }

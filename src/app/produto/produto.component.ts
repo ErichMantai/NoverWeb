@@ -19,5 +19,11 @@ export class ProdutoComponent extends GenericComponent<Produto> {
               public dialog: MdDialog) {
     super(produtoService, dialog)
     this.usesModal(ModalProdutoComponent)
+    this.columns = [
+      {label: 'Descrição', field: 'descricao'},
+      {label: 'Valor', field: 'valor'},
+      {label: 'Promoção', field: 'promocao'},
+      {label: 'Ações', field: 'acoes', noValue: true}
+    ];
   }
 }
