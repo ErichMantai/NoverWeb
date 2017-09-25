@@ -16,6 +16,7 @@ import {
   MdSelectModule,
   MdSnackBarModule,
   MdTableModule,
+  MatExpansionModule
 } from '@angular/material';
 
 @NgModule({
@@ -35,7 +36,8 @@ import {
     MdSnackBarModule,
     MatSidenavModule,
     MatToolbarModule,
-    MatAutocompleteModule
+    MatAutocompleteModule,
+    MatExpansionModule
 
   ],
   providers: [

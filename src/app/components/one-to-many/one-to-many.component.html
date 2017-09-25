@@ -1,3 +1,43 @@
-<p>
-  one-to-many works!
-</p>
+<md-expansion-panel>
+  <md-expansion-panel-header>
+    <md-panel-title>
+      {{title}}
+    </md-panel-title>
+    <md-panel-description>
+      {{description}}
+    </md-panel-description>
+  </md-expansion-panel-header>
+
+  <md-grid-list cols="12" class="md-grid-list-flex">
+    <md-grid-tile style="flex: 1" *ngFor="let input of inputs" [colspan]="input.colspan" [rowspan]="input.rowspan">
+      <md-form-field>
+        <input [(ngModel)]="toAdd[getField(input, 'ngModel')]" tabindex="{{input.tabindex || -1}}" mdInput placeholder="{{input.label}}"
+          id="{{input.ngModel}}" name="{{input.ngModel}}">
+      </md-form-field>
+    </md-grid-tile>
+    <md-grid-tile class="md-grid-title-button">
+      <button md-button color="primary" type="button" (click)="add()">
+          <md-icon>add</md-icon>
+      </button>
+    </md-grid-tile>
+  </md-grid-list>
+
+  <br>
+  <div *ngFor="let value of values">
+    <md-grid-list class="md-grid-list-flex" cols="12">
+      <md-grid-tile *ngFor="let input of inputs" [colspan]="input.colspan" [rowspan]="input.rowspan">
+        <ng-content></ng-content>
+        {{value.descricao}}
+      </md-grid-tile>
+
+      <md-grid-tile>
+        <button md-button color="primary" type="button" (click)="edit(value)">
+          <md-icon>mode_edit</md-icon>
+        </button>
+        <button md-button color="warn" type="button" (click)="delete(value)">
+          <md-icon>delete</md-icon>
+        </button>
+      </md-grid-tile>
+    </md-grid-list>
+  </div>
+</md-expansion-panel>

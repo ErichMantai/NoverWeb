@@ -9,16 +9,6 @@
       <md-grid-tile colspan="12" rowspan="2">
         <app-many-to-one [values]="cardapios" [(selected)]="element.cardapio"></app-many-to-one>
       </md-grid-tile>
-      <!-- <md-grid-tile colspan="12" rowspan="2">
-          <md-form-field class="element-full-width">
-            <input name="mdAutocomplete" mdInput placeholder="Cardápio" aria-label="State" [mdAutocomplete]="auto" [formControl]="stateCtrl">
-            <md-autocomplete #auto="mdAutocomplete">
-              <md-option *ngFor="let cardapio of filteredCardapios | async" (onSelectionChange)="selectCardapio(cardapio)" selected="selected" [value]="cardapio.descricao">
-                <span>{{ cardapio.descricao }}</span>
-              </md-option>
-            </md-autocomplete>
-          </md-form-field>
-        </md-grid-tile> -->
     </md-grid-list>
     <md-grid-list cols="4">
       <md-grid-tile colspan="2" rowspan="1">
@@ -33,6 +23,16 @@
       </md-grid-tile>
     </md-grid-list>
     <md-checkbox style="margin-left: 38px" [(ngModel)]="element.promocao" name="promocao">Promoção</md-checkbox>
+    <md-grid-list cols="12">
+        <app-one-to-many
+          #myTable
+          [title]="'Detalhes do produto'"
+          [description]="'Clique aqui e adicione mais detalhes'"
+          [inputs]="inputs"
+          [(values)]="element.detalhes">
+        </app-one-to-many>
+      </md-grid-list>
+    <br>
   </form>
 </md-dialog-content>
 <md-dialog-actions style="float: right;">

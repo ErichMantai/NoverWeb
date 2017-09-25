@@ -1,4 +1,4 @@
-import { NgModule } from '@angular/core';
+import { NgModule,NO_ERRORS_SCHEMA } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { OneToManyComponent } from './one-to-many/one-to-many.component';
 import { ManyToOneComponent } from './many-to-one/many-to-one.component';
@@ -16,6 +16,7 @@ import { BrowserModule } from '@angular/platform-browser';
     ReactiveFormsModule
   ],
   exports:[OneToManyComponent, ManyToOneComponent, ManyToManyComponent],
-  declarations: [OneToManyComponent, ManyToOneComponent, ManyToManyComponent]
+  declarations: [OneToManyComponent, ManyToOneComponent, ManyToManyComponent],
+  schemas:[NO_ERRORS_SCHEMA]
 })
 export class ComponentsModule { }

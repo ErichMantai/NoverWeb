@@ -27,7 +27,7 @@ export class ProdutoComponent extends GenericComponent<Produto> {
       { label: 'Ações', field: 'acoes', noValue: true }
     ];
     this.modalConfig = {
-      height: '250px'
+      height: '550px'
     }
   }
 }

@@ -32,6 +32,20 @@ export class GenericModalComponent<T extends GenericClass> implements OnInit {
         duration: 2000,
       });
     })
+  }
 
+  getField(obj: any, field: string, str?: Array<string>) {
+    let toStr = field ? field.split(".") : []
+    if (toStr.length > 1) {
+      str = toStr
+    }
+    if (str && str.length > 1) {
+      field = str[0]
+      let nextField = str[1]
+      str.splice(0,1)
+      return this.getField(obj[field], nextField, str)
+    } else {
+      return obj ? obj[field] : obj
+    }
   }
 }
