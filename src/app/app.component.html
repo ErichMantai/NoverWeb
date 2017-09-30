@@ -1,27 +1,35 @@
-<md-toolbar color="primary">
+<md-toolbar color="primary" *ngIf="router.url != '/login'">
     <span class="app-sidenav-menu" (click)="openMenu()">
-      <md-icon>menu</md-icon>
+      <span>
+        <md-icon style="top: 4px;position: relative;">menu</md-icon>
+      </span>
       <span>Escarabajo Hamburgueria Bistrô</span>
     </span>
   <span class="app-sidenav-spacer"></span>
-  <md-icon class="app-sidenav-icon">favorite</md-icon>
-  <md-icon class="app-sidenav-icon">delete</md-icon>
+  <!--<md-icon class="app-sidenav-icon">favorite</md-icon>-->
+  <md-icon class="app-sidenav-icon" (click)="logout()">exit_to_app</md-icon>
 </md-toolbar>
 
-<md-sidenav-container class="app-container" *ngIf="router.url != '/login'">
-  <md-sidenav #sidenav class="app-sidenav" [mode]="mode"  color="primary"
+<md-sidenav-container class="app-container">
+  <md-sidenav style="overflow: hidden;" *ngIf="router.url != '/login'" #sidenav class="app-sidenav"  color="primary"
               [fixedInViewport]="fixed" [fixedTopGap]="fixedTop" [fixedBottomGap]="fixedBottom">
     <ul>
-      <li><button md-button color="primary" routerLink="/produto"><md-icon>add_shopping_cart</md-icon> Pedidos</button></li>
+      <li>
+        <img class="app-sidenav-menu-bg"
+             src="assets/img/mac_wallpaper___flat_colors___1920x1200_by_dakirby309-d7lmemf.jpg" alt="Loading...">
+        <img class="app-sidenav-menu-img-user" src="{{getUser()['__zone_symbol__value'].photoURL}}" alt="">
+        <p class="app-sidenav-menu-user-name">{{getUser()['__zone_symbol__value'].displayName}}</p>
+        <p class="app-sidenav-menu-user-email">
+          {{getUser()['__zone_symbol__value'].email}}
+          <md-icon>arrow_drop_down</md-icon>
+        </p>
+      </li>
+      <li><button md-button color="primary" routerLink="/pedido"><md-icon>add_shopping_cart</md-icon> Pedidos</button></li>
       <li><button md-button color="primary" routerLink="/cardapio"><md-icon>restaurant</md-icon>Cardápio</button></li>
       <li><button md-button color="primary" routerLink="/produto"><md-icon>local_drink</md-icon>Produtos</button></li>
       <li><button md-button color="primary" routerLink="/cliente"><md-icon>person_pin_circle</md-icon>Clientes</button></li>
       <li><button md-button color="primary" routerLink="/categoria"><md-icon>assignment</md-icon>Categorias</button></li>
       <li><button md-button color="primary" routerLink="/relatorio"><md-icon>list</md-icon>Relatório de Vendas</button></li>
-      <!--<li><a routerLink="/produto">Produtos</a></li>-->
-      <!--<li><a routerLink="/produto">Produtos</a></li>-->
-      <!--<li><a routerLink="/cliente">Clientes</a></li>-->
-      <!--<li><a routerLink="/relatorio">Relatório de Vendas</a></li>-->
     </ul>
   </md-sidenav>
 
@@ -30,35 +38,3 @@
   </div>
 
 </md-sidenav-container>
-
-<!--
-    <nav class="navbar navbar-inverse" *ngIf="router.url != '/login'">
-        <div class="container-fluid">
-            <div class="navbar-header">
-                <button type="button" class="navbar-toggle pull-left">
-					<span class="icon-bar"></span>
-					<span class="icon-bar"></span>
-					<span class="icon-bar"></span>
-				    </button>
-                <a class="navbar-brand" href="#">Escarabajo Hamburgueria Bistrô</a>
-            </div>
-            <div class="collapse navbar-collapse">
-                <ul class="nav navbar-nav navbar-right">
-                    <li><a (click)="logout()" href="">Sair</a></li>
-                </ul>
-            </div>
-        </div>
-    </nav>
-    <div class="main">
-        <div class="menu">
-            <ul>
-                <li><a routerLink="/produto">Produtos</a></li>
-                <li><a routerLink="/produto">Produtos</a></li>
-                <li><a routerLink="/cliente">Clientes</a></li>
-                <li><a routerLink="/relatorio">Relatório de Vendas</a></li>
-            </ul>
-        </div>
-        <router-outlet></router-outlet>
-    </div>
-
--->

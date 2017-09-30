@@ -5,19 +5,31 @@
 <md-dialog-content>
 
   <form class="formwidth" (ngSubmit)="onSubmit()" #myForm="ngForm">
-    <md-grid-list cols="4">
-      <md-grid-tile colspan="2" rowspan="1">
+    <md-grid-list cols="12">
+      <md-grid-tile colspan="4" rowspan="1">
         <md-form-field>
-          <input mdInput placeholder="Descrição" id="descricao" [(ngModel)]="element.descricao" name="descricao">
+          <input mdInput placeholder="Nome" id="nome" [(ngModel)]="element.nome" name="nome">
         </md-form-field>
       </md-grid-tile>
-      <md-grid-tile colspan="2" rowspan="1">
+      <md-grid-tile colspan="4" rowspan="1">
         <md-form-field>
-          <input mdInput placeholder="Valor" id="valor" [(ngModel)]="element.valor" name="valor">
+          <input mdInput placeholder="E-mail" id="email" [(ngModel)]="element.email" name="email">
+        </md-form-field>
+      </md-grid-tile>
+      <md-grid-tile colspan="4" rowspan="1">
+        <md-form-field>
+          <input mdInput placeholder="Telefone" id="telefone" [(ngModel)]="element.telefone" name="telefone">
         </md-form-field>
       </md-grid-tile>
     </md-grid-list>
-    <md-checkbox style="margin-left: 38px" [(ngModel)]="element.promocao" name="promocao">Promoção</md-checkbox>
+    <mg-grid-list cols="12">
+      <app-one-to-many
+        [title]="'Endereços'"
+        [description]="'Clique aqui e adicione mais endereços'"
+        [inputs]="inputs"
+        [(values)]="element.enderecos">
+      </app-one-to-many>
+    </mg-grid-list>
   </form>
 </md-dialog-content>
 <md-dialog-actions style="float: right;">

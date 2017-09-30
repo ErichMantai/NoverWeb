@@ -17,7 +17,8 @@
     </md-grid-tile>
     <md-grid-tile class="md-grid-title-button">
       <button md-button color="primary" type="button" (click)="add(toAdd)">
-          <md-icon>add</md-icon>
+          <md-icon *ngIf="!editing">add</md-icon>
+          <md-icon *ngIf="editing">save</md-icon>
       </button>
     </md-grid-tile>
   </md-grid-list>

@@ -20,6 +20,7 @@ export class LoginComponent implements OnInit {
     this.user = af.authState
     this.user.subscribe(auth => {
       if (auth) {
+      console.log(auth)
         this.router.navigateByUrl('/produto');
       }
     });
@@ -27,8 +28,7 @@ export class LoginComponent implements OnInit {
 
   loginFb() {
     this.afAuth.loginWithFacebook().then((data) => {
-      //TODO pedido
-      this.router.navigate(['produto']);
+      this.router.navigate(['pedido']);
     })
   }
 

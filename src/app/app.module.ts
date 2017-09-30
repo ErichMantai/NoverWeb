@@ -89,7 +89,8 @@ import { CategoriaComponent } from "./categoria/categoria.component";
     ModalClienteComponent,
     ModalCategoriaComponent,
     ModalPedidoComponent,
-    ModalCardapioComponent
+    ModalCardapioComponent,
+    LoginComponent
   ],
   schemas: [CUSTOM_ELEMENTS_SCHEMA]
 })

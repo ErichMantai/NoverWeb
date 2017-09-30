@@ -15,6 +15,7 @@ import {ModalClienteComponent} from "../modal-cliente/modal-cliente.component";
   styleUrls: ['./cliente.component.css'],
 })
 export class ClienteComponent extends GenericComponent<Cliente> {
+
   constructor(public clienteService: ClienteService,
               public dialog: MdDialog) {
     super(clienteService, dialog);
@@ -25,5 +26,8 @@ export class ClienteComponent extends GenericComponent<Cliente> {
       {label: 'Tipo Cliente', field: 'tipoCliente'},
       {label: 'Ações', field: 'acoes', noValue: true}
     ];
+    this.modalConfig = {
+      height: '550px'
+    }
   }
 }

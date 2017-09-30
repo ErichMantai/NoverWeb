@@ -12,6 +12,38 @@ import {Cliente} from "../class/cliente";
 
 })
 export class ModalClienteComponent extends GenericModalComponent<Cliente> {
+
+  inputs: any[] = [
+    {
+      label: 'Logradouro',
+      colspan: 4,
+      rowspan: 1,
+      ngModel: 'logradouro',
+      tabindex: 10
+    },
+    {
+      label: 'Cep',
+      colspan: 4,
+      rowspan: 1,
+      ngModel: 'cep',
+      tabindex: 11
+    },
+    {
+      label: 'Nº',
+      colspan: 4,
+      rowspan: 1,
+      ngModel: 'numero',
+      tabindex: 12
+    },
+    {
+      label: 'Bairro',
+      colspan: 4,
+      rowspan: 1,
+      ngModel: 'bairro',
+      tabindex: 13
+    }
+  ];
+
   constructor(private clienteService: ClienteService,
               private bar: MdSnackBar,
               @Inject(MD_DIALOG_DATA) public data: any) {

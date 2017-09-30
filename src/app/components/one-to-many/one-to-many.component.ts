@@ -20,6 +20,7 @@ export class OneToManyComponent implements OnInit, OnChanges {
   _values: Array<any>;
   _valuesChange: EventEmitter<any>;
   _toAddChange: EventEmitter<any>;
+  _editing: boolean = false;
   @Input() title: string;
   @Input() description: string;
   @Input() inputs: Array<any>;
@@ -60,6 +61,13 @@ export class OneToManyComponent implements OnInit, OnChanges {
     this._valuesChange = value;
   }
 
+  get editing(): boolean {
+    return this._editing;
+  }
+
+  set editing(value: boolean) {
+    this._editing = value;
+  }
 
   constructor() {
     this._valuesChange = new EventEmitter();
@@ -76,7 +84,10 @@ export class OneToManyComponent implements OnInit, OnChanges {
   }
 
   add(toAdd) {
-    this.values.push(toAdd);
+    if (!this.editing) {
+      this.values.push(toAdd);
+    }
+    this.editing = false;
     this.toAddChange.emit(toAdd);
     this.valuesChange.emit(this.values)
     this.toAdd = {}
@@ -84,6 +95,7 @@ export class OneToManyComponent implements OnInit, OnChanges {
 
   edit(value) {
     this._toAdd = value;
+    this.editing = true;
   }
 
   find(value) {

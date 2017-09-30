@@ -1,11 +1,9 @@
 <div class="container">
     <form action="index.html" style="width: 300px;margin: auto;margin-top: 20%;" method="post">
-        <img class="img-responsive" src="./assets/img/logo1.png" alt="Escarabajo">
-        <div class="form-group">
-            <button (click)="loginFb()" id="btn-login" type="button" class="btn btn-block btn-social btn-facebook">
-                    <span class="error" *ngIf="error">{{ error }}</span>    
-                        <span class="fa fa-facebook"></span> Entrar
-                </button>
-        </div>
+        <img class="logo-login" src="./assets/img/logo1.png" alt="Escarabajo">
+          <button (click)="loginFb()" id="btn-login" md-raised-button>
+            <i class="fa fa-facebook" aria-hidden="true"></i>
+            Login
+          </button>
     </form>
 </div>
