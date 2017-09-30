@@ -1,4 +1,14 @@
-import {Component, OnInit, Input, Output, EventEmitter, OnChanges, SimpleChanges, ContentChild} from '@angular/core';
+import {
+  Component,
+  ContentChild,
+  EventEmitter,
+  Input,
+  OnChanges,
+  OnInit,
+  Output,
+  SimpleChanges,
+  TemplateRef, ViewChild
+} from '@angular/core';
 
 @Component({
   selector: 'app-one-to-many',
@@ -6,10 +16,14 @@ import {Component, OnInit, Input, Output, EventEmitter, OnChanges, SimpleChanges
   styleUrls: ['./one-to-many.component.css']
 })
 export class OneToManyComponent implements OnInit, OnChanges {
+  _toAdd: any = {};
+  _values: Array<any>;
+  _valuesChange: EventEmitter<any>;
+  _toAddChange: EventEmitter<any>;
   @Input() title: string;
   @Input() description: string;
   @Input() inputs: Array<any>;
-  _values: Array<any>;
+
   @Input()
   get values() {
     return this._values
@@ -19,21 +33,37 @@ export class OneToManyComponent implements OnInit, OnChanges {
     this._values = values
   }
 
-  @Output() valuesChange: EventEmitter<any>;
-  toAdd: any = {};
-
   @Input()
-  get ctx() {
-    return this
-  };
+  get toAdd(): any {
+    return this._toAdd;
+  }
+
+  set toAdd(value: any) {
+    this._toAdd = value;
+  }
 
   @Output()
+  get toAddChange(): EventEmitter<any> {
+    return this._toAddChange;
+  }
 
+  set toAddChange(value: EventEmitter<any>) {
+    this._toAddChange = value;
+  }
 
-  myContext = {$implicit: 'World', localSk: 'Svet'};
+  @Output()
+  get valuesChange(): EventEmitter<any> {
+    return this._valuesChange;
+  }
+
+  set valuesChange(value: EventEmitter<any>) {
+    this._valuesChange = value;
+  }
+
 
   constructor() {
-    this.valuesChange = new EventEmitter();
+    this._valuesChange = new EventEmitter();
+    this._toAddChange = new EventEmitter()
   }
 
   ngOnInit() {
@@ -45,15 +75,15 @@ export class OneToManyComponent implements OnInit, OnChanges {
     }
   }
 
-  add() {
-    this.values.push(this.toAdd)
+  add(toAdd) {
+    this.values.push(toAdd);
+    this.toAddChange.emit(toAdd);
+    this.valuesChange.emit(this.values)
     this.toAdd = {}
-    console.log(this.toAdd)
   }
 
   edit(value) {
-    console.log(value)
-    this.toAdd = value;
+    this._toAdd = value;
   }
 
   find(value) {

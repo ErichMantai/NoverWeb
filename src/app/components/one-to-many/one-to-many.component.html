@@ -10,13 +10,13 @@
 
   <md-grid-list cols="12" class="md-grid-list-flex">
     <md-grid-tile style="flex: 1" *ngFor="let input of inputs" [colspan]="input.colspan" [rowspan]="input.rowspan">
-      <md-form-field>
+      <md-form-field style="width: 100%;">
         <input [(ngModel)]="toAdd[getField(input, 'ngModel')]" tabindex="{{input.tabindex || -1}}" mdInput placeholder="{{input.label}}"
           id="{{input.ngModel}}" name="{{input.ngModel}}">
       </md-form-field>
     </md-grid-tile>
     <md-grid-tile class="md-grid-title-button">
-      <button md-button color="primary" type="button" (click)="add()">
+      <button md-button color="primary" type="button" (click)="add(toAdd)">
           <md-icon>add</md-icon>
       </button>
     </md-grid-tile>
@@ -26,8 +26,7 @@
   <div *ngFor="let value of values">
     <md-grid-list class="md-grid-list-flex" cols="12">
       <md-grid-tile *ngFor="let input of inputs" [colspan]="input.colspan" [rowspan]="input.rowspan">
-        <ng-content></ng-content>
-        {{value.descricao}}
+        {{value[input['ngModel']]}}
       </md-grid-tile>
 
       <md-grid-tile>

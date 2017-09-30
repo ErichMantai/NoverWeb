@@ -1,4 +1,7 @@
-import { Component, Inject, OnInit, ViewChild, OnChanges, SimpleChanges, ContentChild, ViewChildren, QueryList, AfterContentInit } from '@angular/core';
+import {
+  Component, Inject, OnInit, ViewChild, OnChanges, SimpleChanges, ContentChild, ViewChildren, QueryList,
+  AfterContentInit, ContentChildren
+} from '@angular/core';
 import {MD_DIALOG_DATA, MdAutocomplete, MdSnackBar} from '@angular/material';
 import {ProdutoService} from '../services/produto.service';
 import {Produto} from '../class/produto'
@@ -21,20 +24,13 @@ export class ModalProdutoComponent extends GenericModalComponent<Produto> implem
   inputs: any[] = [
     {
       label: 'Descrição',
-      colspan: 5,
+      colspan: 10,
       rowspan: 1,
-      ngModel: 'descricao'
-    },
-    {
-      label: 'Teste',
-      colspan: 5,
-      rowspan: 1,
-      ngModel: 'teste'
+      ngModel: 'descricao',
+      tabIndex: 1
     }
   ];
 
-
-  @ViewChildren("input") c: QueryList<OneToManyComponent>;
 
   constructor(private produtoService: ProdutoService,
               private bar: MdSnackBar,
@@ -57,6 +53,5 @@ export class ModalProdutoComponent extends GenericModalComponent<Produto> implem
   }
 
   ngAfterContentInit(): void {
-    console.log(this.c)
   }
 }

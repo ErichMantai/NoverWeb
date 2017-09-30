@@ -13,7 +13,8 @@
     <md-grid-list cols="4">
       <md-grid-tile colspan="2" rowspan="1">
         <md-form-field>
-          <input tabindex="1" mdInput placeholder="Descrição" id="descricao" [(ngModel)]="element.descricao" name="descricao">
+          <input tabindex="1" mdInput placeholder="Descrição" id="descricao" [(ngModel)]="element.descricao"
+                 name="descricao">
         </md-form-field>
       </md-grid-tile>
       <md-grid-tile colspan="2" rowspan="1">
@@ -24,14 +25,13 @@
     </md-grid-list>
     <md-checkbox style="margin-left: 38px" [(ngModel)]="element.promocao" name="promocao">Promoção</md-checkbox>
     <md-grid-list cols="12">
-        <app-one-to-many
-          #myTable
-          [title]="'Detalhes do produto'"
-          [description]="'Clique aqui e adicione mais detalhes'"
-          [inputs]="inputs"
-          [(values)]="element.detalhes">
-        </app-one-to-many>
-      </md-grid-list>
+      <app-one-to-many
+        [title]="'Detalhes do produto'"
+        [description]="'Clique aqui e adicione mais detalhes'"
+        [inputs]="inputs"
+        [(values)]="element.detalhes">
+      </app-one-to-many>
+    </md-grid-list>
     <br>
   </form>
 </md-dialog-content>
