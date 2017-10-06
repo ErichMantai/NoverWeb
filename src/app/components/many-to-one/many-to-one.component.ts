@@ -13,6 +13,7 @@ export class ManyToOneComponent implements OnInit, OnChanges {
   @ViewChild('auto') mdAutocomplete: MdAutocomplete;
   @Input("values") values: any;
   @Input("field") field: any = "descricao";
+  @Input("placeholder") placeholder: any = "Placeholder";
   stateCtrl: FormControl;
   filteredValues: Observable<any[]>;
 
@@ -47,6 +48,7 @@ export class ManyToOneComponent implements OnInit, OnChanges {
             if (this.selected && this.selected[this.field] != value) {
               this.selected = null;
             }
+            // console.log(value, "---- ", this.values, this.values.slice())
             return value ? this.filterValues(value) : this.values.slice()
           });
       }

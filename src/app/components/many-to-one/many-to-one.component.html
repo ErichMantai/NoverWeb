@@ -1,8 +1,8 @@
 <md-form-field class="element-full-width">
-  <input name="mdAutocomplete" tabindex="-1" mdInput placeholder="Cardápio" (keyup)="keyup($event)" aria-label="State" [mdAutocomplete]="auto" [formControl]="stateCtrl">
+  <input name="mdAutocomplete" tabindex="-1" mdInput [placeholder]="placeholder" (keyup)="keyup($event)" aria-label="State" [mdAutocomplete]="auto" [formControl]="stateCtrl">
   <md-autocomplete #auto="mdAutocomplete">
-    <md-option *ngFor="let value of filteredValues | async" (onSelectionChange)="selectValue(value)" selected="selected" [value]="value.descricao">
-      <span>{{ value.descricao }}</span>
+    <md-option *ngFor="let value of filteredValues | async" (onSelectionChange)="selectValue(value)" selected="selected" [value]="value[field]">
+      <span>{{ value[field] }}</span>
     </md-option>
   </md-autocomplete>
 </md-form-field>

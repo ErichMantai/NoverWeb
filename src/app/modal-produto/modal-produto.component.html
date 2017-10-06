@@ -7,7 +7,7 @@
   <form class="formwidth" (ngSubmit)="onSubmit()" #myForm="ngForm">
     <md-grid-list cols="12">
       <md-grid-tile colspan="12" rowspan="2">
-        <app-many-to-one [values]="cardapios" [(selected)]="element.cardapio"></app-many-to-one>
+        <app-many-to-one [values]="cardapios" [(selected)]="element.cardapio" [placeholder]="'Cardápio'"></app-many-to-one>
       </md-grid-tile>
     </md-grid-list>
     <md-grid-list cols="4">

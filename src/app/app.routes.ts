@@ -7,7 +7,7 @@ import {RelatorioComponent} from './relatorio/relatorio.component';
 import {PedidoComponent} from "./pedido/pedido.component";
 import {CategoriaComponent} from "./categoria/categoria.component";
 import {CardapioComponent} from "./cardapio/cardapio.component";
-
+// ng build -prod --aot=false
 export const router: Routes = [
   {path: '', redirectTo: 'login', pathMatch: 'full'},
   // { path: '**', redirectTo: 'login', pathMatch: 'full' },

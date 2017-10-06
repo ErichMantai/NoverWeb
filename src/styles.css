@@ -14,7 +14,7 @@
 app-login {
   width: calc(89vw);
   padding-bottom: 83px;
-  background-image: url(assets/img/blue-material-design-ultra-hd-wallpapers.png) !important;
+  /* background-image: url(assets/img/blue-material-design-ultra-hd-wallpapers.png) !important; */
   background-repeat: no-repeat;
   background-origin: border-box;
   background-size: cover;
@@ -56,6 +56,7 @@ html, body {
 
 .app-sidenav-content {
   display: flex;
+  /* width: calc(100%); */
   margin: 30px;
   /*width: 100%;*/
   /*!*margin-right: 40px;*!*/
@@ -168,13 +169,18 @@ md-dialog-content {
 
 .btn-fab-add {
   position: fixed !important;;
-  bottom: 20px !important;;
+  bottom: 100px !important;;
   right: 30px !important;
 }
 
 .mat-drawer-container {
   border: none;
+  background: transparent;
   height: calc(100vh);
+}
+
+.one-to-many-pedido-produto > md-form-field {
+  width: 90%;
 }
 
 @media screen and (max-width: 500px) {

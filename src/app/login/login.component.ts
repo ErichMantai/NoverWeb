@@ -28,10 +28,14 @@ export class LoginComponent implements OnInit {
 
   loginFb() {
     this.afAuth.loginWithFacebook().then((data) => {
+      document.body.style.background = "white";
       this.router.navigate(['pedido']);
     })
   }
 
   ngOnInit() {
+    console.log(document.body)
+    document.body.style.background = "url(assets/img/blue-material-design-ultra-hd-wallpapers.png)"
+    document.body.style.backgroundSize = 'cover';
   }
 }

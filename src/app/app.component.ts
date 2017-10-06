@@ -34,7 +34,6 @@ export class AppComponent implements OnInit {
     let key = "";
 
     key = localStorage.filter(obj => obj.includes('firebase:authUser'))[0];
-    console.log(JSON.parse(window.localStorage.getItem(key)));
     return window.localStorage.getItem(key) ? JSON.parse(window.localStorage.getItem(key)) : {'__zone_symbol__value': {}}
   }
 

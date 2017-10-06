@@ -1,11 +1,11 @@
 <md-dialog-header>
-  <h1 md-dialog-title class="primary-color">Cadastro Produto</h1>
+  <h1 md-dialog-title class="primary-color">Cadastro Pedido</h1>
 </md-dialog-header>
 <!-- <h1 md-dialog-title class="primary-color">Cadastro Produto</h1> -->
 <md-dialog-content>
 
   <form class="formwidth" (ngSubmit)="onSubmit()" #myForm="ngForm">
-    <md-grid-list cols="4">
+    <md-grid-list cols="12">
       <md-grid-tile colspan="2" rowspan="1">
         <md-form-field>
           <input mdInput placeholder="Descrição" id="descricao" [(ngModel)]="element.descricao" name="descricao">
@@ -16,8 +16,41 @@
           <input mdInput placeholder="Valor" id="valor" [(ngModel)]="element.valor" name="valor">
         </md-form-field>
       </md-grid-tile>
+      <md-grid-tile colspan="4" rowspan="1">
+        <md-select placeholder="Status" [(ngModel)]="element.status" name="food">
+          <md-option *ngFor="let st of listStatus" [value]="st">
+            {{st}}
+          </md-option>
+        </md-select>
+      </md-grid-tile>
+      <md-grid-list cols="4">
+        <md-grid-tile colspan="4" rowspan="1">
+          <app-many-to-one [placeholder]="'Cliente'" [values]="clientes" [(selected)]="element.cliente" [field]="'nome'"></app-many-to-one>
+        </md-grid-tile>
+      </md-grid-list>
     </md-grid-list>
-    <md-checkbox style="margin-left: 38px" [(ngModel)]="element.promocao" name="promocao">Promoção</md-checkbox>
+    <md-grid-list cols="4">
+      <md-grid-tile colspan="4" rowspan="2">
+        <app-many-to-one class="one-to-many-pedido-produto" [placeholder]="'Produto'" [values]="produtos" [(selected)]="produtoSelecionado"></app-many-to-one>
+      </md-grid-tile>
+      <md-grid-tile colspan="4" rowspan="2">
+        <button md-button color="primary" type="button" (click)="addProduto()">
+              <md-icon>add</md-icon>
+            </button>
+      </md-grid-tile>
+    </md-grid-list>
+    <ms-grid-list cols="12">
+      <md-list *ngIf="element.itens">
+        <md-list-item *ngFor="let item of element?.itens">
+          <md-card>
+            <span>* {{item?.produto.descricao}}</span>
+            <button md-button color="warn" style="float: right;" type="button" (click)="deleteProduto(item)">
+                  <md-icon>delete</md-icon>
+                </button>
+          </md-card>
+        </md-list-item>
+      </md-list>
+    </ms-grid-list>
   </form>
 </md-dialog-content>
 <md-dialog-actions style="float: right;">

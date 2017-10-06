@@ -24,5 +24,8 @@ export class PedidoComponent extends GenericComponent<Pedido> {
       {label: 'Status', field: 'status'},
       {label: 'Ações', field: 'acoes', noValue: true}
     ];
+    this.modalConfig = {
+      height: '550px'
+    }
   }
 }
